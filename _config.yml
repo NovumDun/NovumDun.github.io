@@ -85,7 +85,7 @@ author:
   bio              : "A embedded software developer in China, familiar with MCU (Arm cortex-M series) and RTOS, currently working in a team developing RTOS."
   location         : "Chengdu/China"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  # pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   # googlescholar    : "http://yourfullgooglescholarurl.com"
   email            :  dengweiw@hotmail.com
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
