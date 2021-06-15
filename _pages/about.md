@@ -15,6 +15,28 @@ redirect_from:
 {% assign size = size_proj | plus: size_post %}
 
 {% for num in (1..size) %}
+  {% if pos_proj >= size_proj %}
+    {% assign post = site.posts[pos_post] %}
+    {% assign pos_post =  pos_post | plus: 1 %}
+    {% assign date = post.date | split: " " %}
+    <div class="timeline-item" date-is='{{ date[0] }}'>
+      <h1>{{ post.title}}</h1>
+      <p>{{ post.excerpt }}</p>
+    </div>
+    {% continue %}
+  {% endif %}
+
+  {% if pos_post >= size_post %}
+    {% assign project = site.projects[pos_proj] %}
+    {% assign pos_proj =  pos_proj | plus: 1 %}
+    {% assign date = project.date | split: " " %}
+    <div class="timeline-item" date-is='{{ date[0] }}'>
+      <h1>{{ project.title}}</h1>
+      <p>{{ project.excerpt }}</p>
+    </div>
+    {% continue %}
+  {% endif %}
+
   {% assign project = site.projects[pos_proj] %}
   {% assign post = site.posts[pos_post] %}
   {% if project.date >= post.date %}
