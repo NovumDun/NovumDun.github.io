@@ -15,12 +15,15 @@ redirect_from:
 {% assign size = size_proj | plus: size_post %}
 
 {% for num in (1..size) %}
+  {% include base_path %}
   {% if pos_proj >= size_proj %}
     {% assign post = site.posts[pos_post] %}
     {% assign pos_post =  pos_post | plus: 1 %}
     {% assign date = post.date | split: " " %}
     <div class="timeline-item" date-is='{{ date[0] }}'>
-      <h1>{{ post.title}}</h1>
+      <h1>
+      <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title }}</a>
+      </h1>
       <p>{{ post.excerpt }}</p>
     </div>
     {% continue %}
@@ -31,7 +34,9 @@ redirect_from:
     {% assign pos_proj =  pos_proj | plus: 1 %}
     {% assign date = project.date | split: " " %}
     <div class="timeline-item" date-is='{{ date[0] }}'>
-      <h1>{{ project.title}}</h1>
+      <h1>
+      <a href="{{ base_path }}{{ project.url }}" rel="permalink">{{ project.title }}</a>
+      </h1>
       <p>{{ project.excerpt }}</p>
     </div>
     {% continue %}
@@ -43,14 +48,18 @@ redirect_from:
     {% assign pos_proj =  pos_proj | plus: 1 %}
     {% assign date = project.date | split: " " %}
     <div class="timeline-item" date-is='{{ date[0] }}'>
-      <h1>{{ project.title}}</h1>
+      <h1>
+      <a href="{{ base_path }}{{ project.url }}" rel="permalink">{{ project.title }}</a>
+      </h1>
       <p>{{ project.excerpt }}</p>
     </div>
   {% else %}
     {% assign pos_post =  pos_post | plus: 1 %}
     {% assign date = post.date | split: " " %}
     <div class="timeline-item" date-is='{{ date[0] }}'>
-      <h1>{{ post.title}}</h1>
+      <h1>
+      <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title }}</a>
+      </h1>
       <p>{{ post.excerpt }}</p>
     </div>
   {% endif %}
