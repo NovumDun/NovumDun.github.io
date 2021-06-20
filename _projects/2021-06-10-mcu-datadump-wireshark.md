@@ -4,6 +4,11 @@ collection: projects
 permalink: /projects/mcu-datadump-wireshark
 excerpt: 'A tool dumps datas from mcu to PC and put them into wireshark to analyse.'
 date: 2021-06-10
+tags:
+  - MCU
+  - RTOS
+  - Wireshark
+  - Protocol analysis
 ---
 
 ## Brief
