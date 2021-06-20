@@ -2,7 +2,7 @@
 title: "Mcu Datadump Wireshark"
 collection: projects
 permalink: /projects/mcu-datadump-wireshark
-excerpt: 'A tool dump data from mcu to PC and analyse them in wireshark.'
+excerpt: 'A tool dumps datas from mcu to PC and put them into wireshark to analyse.'
 date: 2021-06-10
 ---
 
