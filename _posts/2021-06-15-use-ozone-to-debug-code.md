@@ -12,7 +12,8 @@ tags:
 
 ## Brief
 
-* Ozone is a cross-platform debugger and performance analyzer for J-Link and J-Trace. You can get most information for usage on the official web site for [Ozone](https://www.segger.com/products/development-tools/ozone-j-link-debugger/).
+* Ozone is a cross-platform debugger and performance analyzer for J-Link and J-Trace. You can get most information for usage on the official web site for [Ozone](https://www.segger.com/products/development-tools/ozone-j-link-debugger/).  
+
 * RTT is a tool that transports data using Jlink from MCU to PC with high speed. For more information, you can visit [this site](https://www.segger.com/products/debug-probes/j-link/technology/about-real-time-transfer/).  
 
 On this page, I'm going to introduce you to debug code on [WSL2](https://docs.microsoft.com/en-us/windows/wsl/) with Ozone.  
@@ -53,7 +54,7 @@ west build -b stm32f767g_apollo  hello_world --build-dir build-stm32f767g_apollo
 west build -b stm32f767g_apollo  hello_world --build-dir build-stm32f767g_apollo-hello_world
 ```
 
-When building is completed, we can get elf generated for debug.
+After building is completed, we can get elf generated for debug.
 
 ![](/images/2021-06-15-use-ozone-to-debug-code/build-elf.png)
 
@@ -67,7 +68,7 @@ Ozone.exe   # This is Ozone's exe file name on windows.
 
 * Follow the 'New Project Wizard' to load project. Select the elf file when asked to choose 'Program File'. The file path's format should match with "\\\\wsl$\Ubuntu-18.04\Pathtoyoufile".  
 
-* When elf is loaded in Ozone, open terminal by selecting "View->Terminal".  
+* After elf is loaded in Ozone, open terminal by selecting "View->Terminal".  
 
 * Now you can download code to MCU and start to debug. You can see output in the terminal.  
 
