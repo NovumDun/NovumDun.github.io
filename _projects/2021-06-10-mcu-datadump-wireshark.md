@@ -61,6 +61,10 @@ python serial_trans.py -h   # Use this cmd to get more information.
 
 ---
 
-## Repository
+## Repository & Demo
 
-[github.com/novumdun/mcu-datadump-wireshark](https://github.com/novumdun/mcu-datadump-wireshark)
+Git repository:  
+[github.com/novumdun/mcu-datadump-wireshark](https://github.com/novumdun/mcu-datadump-wireshark)  
+
+Demo:  
+[https://youtu.be](https://youtu.be/AR5nKpMRGrU)
