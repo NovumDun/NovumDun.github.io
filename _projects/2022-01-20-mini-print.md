@@ -25,7 +25,7 @@ unsigned int t5 = 6;
 MINI_STR_BUF_WRITE_STRU("hello %d %d %d %d %d %d", t0, t1, t2, t3, t4, t5);
 ```
 
-The code above will be transformed to the code below.
+The code above will be transformed to the code below. You can go to [macro_func_collection](https://github.com/novumdun/macro_func_collection.git) or [C_C++-macro-lib](https://novumdun.github.io/posts/2022/01/C_C++-macro-lib/) to get more information.
 
 ```c
 do
