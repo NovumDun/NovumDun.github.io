@@ -14,15 +14,14 @@ Some systems don't use interupt or DMA to output debug messages and it's unaccep
 
 # How does it work?
 
-1. Most mcu's ram is smaller than their rom. So I only put the format strings' pointer and other parameters in buf. For example, this piece of code below is used to output the string "hello world 1". "hello world %d\n"'s pointer and parameter "1" will be saved in ram buff, rather the format string "hello world %d\n".
-
 ```c
-MINI_STR_BUF_WRITE_STRU("hello world %d\n", 1)
-```
+char t0 = 1;
+unsigned char t1 = 2;
+short t2 = 3;
+unsigned short t3 = 4;
+int t4 = 5;
+unsigned int t5 = 6;
 
-2. To minimize the ram used by saving the parameters, I use macros to generate stucts to save the parameters. 
-
-```c
 MINI_STR_BUF_WRITE_STRU("hello %d %d %d %d %d %d", t0, t1, t2, t3, t4, t5);
 ```
 
@@ -103,9 +102,15 @@ do
 } while (0);
 ```
 
-So parameters "t0" to "t5" will be transformed into "struct gen_auto23_stru" and the values of gen_auto23_stru's members will finally be set as "t0" to "t5". Then I save the "struct gen_auto23_stru" to buff.
+1. A print buf ('s_mini_print_stru_w_buf') is used to save debug info. In this buf, each item ('mini_print_stru_w_t') consist of five parts: format string pointer/output time/ready flag/output order/generated struct's start place in parameter ring buf.
 
-3. All parameter structs are save in "mini_paras_buf". By using one ring buf, we can save many ram.
+2. Most mcu's ram is smaller than their rom. So I only put the format strings' pointer and other parameters in print buf. For example, this piece of code below is used to output the string "hello 1 2 3 4 5 6". "hello %d %d %d %d %d %d"'s pointer will be saved in print buf and parameters t0, t1, t2, t3, t4, t5 will be saved in ring buff ('mini_paras_buf'). Format string "hello %d %d %d %d %d %d" is saved in rom. When we need to print this, we can use the format string pointer to get format string.
+
+3. To minimize the ram used by saving the parameters, I use macros to generate stucts to save the parameters. 
+This struct is single-byte aligned. So parameters "t0" to "t5" will be transformed into "struct gen_auto23_stru" and the values of gen_auto23_stru's members will finally be set as "t0" to "t5". Then I save the "struct gen_auto23_stru" to buff. At the same time, amount of parameters and size of each parameter and size of generated struct will be saved in rom, those will be used when output debug info to offer necessary information for struct so that we get origin parameters value and type.
+
+4. All parameter structs are saved in "mini_paras_buf". By using one ring buf, we can save many ram.
+
 ```c
 ________________________________________________________________________________
 ↑         ↑_________________↑_____________________________↑                    ↑
