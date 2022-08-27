@@ -28,6 +28,8 @@ The technical problem to be solved by this solution is that more memory is occup
 
 # Description
 
+![picture](/files/fast-print.png)
+
 ## Implement the 'STR_BUF_WRITE_STRU' macro
 
 ```c
